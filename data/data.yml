@@ -1,1 +1,5 @@
 PROD_URL: "https://www.argaam.com"
+
+LOGIN:
+  EMAIL: "sams.prashanth@gmail.com"
+  PASSWORD: "11111111"

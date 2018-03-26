@@ -1,6 +1,4 @@
-Feature: Argaam - Sectors
-
-  # Sector section - Banks Page
+Feature: Argaam - Sectors Banks Page
 
   @sectors @banks
   Scenario: Verify banks page

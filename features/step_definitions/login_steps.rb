@@ -28,7 +28,7 @@ When("I login as a real user") do
   home = HomePage.new(@driver, @data)
 
   wait_and_click(home.sign_in)
-  wait_and_send(home.username, "sams.prashanth@gmail.com")
-  wait_and_send(home.password, "11111111")
+  wait_and_send(home.username, @data['LOGIN']['EMAIL'])
+  wait_and_send(home.password, @data['LOGIN']['PASSWORD'])
   wait_and_click(home.submit)
 end

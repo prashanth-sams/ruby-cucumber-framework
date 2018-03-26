@@ -151,10 +151,15 @@ module ARGAAM
   end
 
 
-  def verify_element_present(element, option=true)
+  def verify_elements_present(element, option=true)
     wait = Selenium::WebDriver::Wait.new(:timeout => 10)
     wait.until { element.size!=0 }
     expect(element.size!=0).to be(option)
+  end
+
+  def verify_element_present(element, timeout=10)
+    wait = Selenium::WebDriver::Wait.new(:timeout => timeout)
+    wait.until { element.displayed? }
   end
 
   def wait_until(assert, timeout=15)
