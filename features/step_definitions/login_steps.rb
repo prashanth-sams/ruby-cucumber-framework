@@ -3,24 +3,23 @@ Then(/^I verify the home page as "([^"]*)" user/) do |page|
 
   case page
     when "bob"
-      verify_element_present(home.sign_in, true)
+      expect(home.sign_in.displayed?).to be(true)
 
     when "real"
-      verify_element_present(home.user_profile, true)
-      verify_element_present(home.user_display_name, true)
+      expect(home.user_profile.displayed?).to be(true)
+      expect(home.user_display_name.displayed?).to be(true)
 
     else
       p "case not matching"
   end
 
-  verify_element_present(home.popular_menu, true)
-  verify_element_present(home.home_menu, true)
-  verify_element_present(home.sectors_menu, true)
-  verify_element_present(home.companies_menu, true)
-  verify_element_present(home.tools_menu, true)
-  verify_element_present(home.analysts_menu, true)
-  verify_element_present(home.projects_menu, true)
-  verify_element_present(home.indicators_tab, true)
+  expect(home.popular_menu.displayed?).to be(true)
+  expect(home.home_menu.displayed?).to be(true)
+  expect(home.sectors_menu.displayed?).to be(true)
+  expect(home.companies_menu.displayed?).to be(true)
+  expect(home.tools_menu.displayed?).to be(true)
+  expect(home.analysts_menu.displayed?).to be(true)
+  expect(home.projects_menu.displayed?).to be(true)
 
 end
 

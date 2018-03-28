@@ -1,3 +1,4 @@
 .idea/
 .byebug_history
 runners/
+*.DS_Store
