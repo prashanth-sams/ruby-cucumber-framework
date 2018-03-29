@@ -14,13 +14,17 @@ def launch_driver_firefox
 end
 
 def launch_driver_chrome
+
   if ENV['MODE'] && ENV['MODE'].downcase=='headless'
-    # options = Selenium::WebDriver::Chrome::Options.new(args: ['headless'])
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
     @driver = Selenium::WebDriver.for :chrome, options: options
-    target_size = Selenium::WebDriver::Dimension.new(1600, 1268)
-    @driver.manage.window.size = target_size
+
+    max_width, max_height = driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
+    p max_width
+    p max_height
+    @driver.manage.window.resize_to(max_width, max_height)
+
   else
     @driver = Selenium::WebDriver::Driver.for(:chrome)
     @driver.manage.window.maximize
