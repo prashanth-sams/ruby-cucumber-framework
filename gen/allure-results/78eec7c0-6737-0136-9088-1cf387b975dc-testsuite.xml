@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ns2:test-suite xmlns="" xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1531313654595" stop="1531313669206">
+  <name>Argaam - User Authentication</name>
+  <title>Argaam - User Authentication</title>
+  <test-cases>
+    <test-case start="1531313656038" stop="1531313669203" status="failed">
+      <name>User Authentication</name>
+      <title>User Authentication</title>
+      <failure>
+        <message>undefined method `key' for [:css, ".top .login"]:Array</message>
+        <stack-trace>./features/helpers/utilities.rb:113:in `rescue in block in element'&#xD;
+./features/helpers/utilities.rb:109:in `block in element'&#xD;
+./features/step_definitions/login_steps.rb:6:in `/^I verify the home page as "([^"]*)" user/'&#xD;
+features/scenarios/login/login.feature:8:in `Then I verify the home page as "bob" user'</stack-trace>
+      </failure>
+      <steps>
+        <step start="1531313658752" stop="1531313658752" status="passed">
+          <name>I navigate to "home" page</name>
+          <title>I navigate to "home" page</title>
+          <attachments/>
+        </step>
+        <step start="1531313658756" stop="1531313669020" status="failed">
+          <name>I verify the home page as "bob" user</name>
+          <title>I verify the home page as "bob" user</title>
+          <attachments/>
+        </step>
+        <step start="1531313669025" stop="1531313669025" status="canceled">
+          <name>I login as a real user</name>
+          <title>I login as a real user</title>
+          <attachments/>
+        </step>
+        <step start="1531313669026" stop="1531313669026" status="canceled">
+          <name>I verify the home page as "real" user</name>
+          <title>I verify the home page as "real" user</title>
+          <attachments/>
+        </step>
+      </steps>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="70109121160520"/>
+        <label name="host" value="Prashanth.local"/>
+        <label name="feature" value="Argaam - User Authentication"/>
+        <label name="story" value="User Authentication"/>
+      </labels>
+      <parameters/>
+    </test-case>
+  </test-cases>
+  <labels>
+    <label name="severity" value="normal"/>
+    <label name="thread" value="70109121160520"/>
+    <label name="host" value="Prashanth.local"/>
+  </labels>
+</ns2:test-suite>

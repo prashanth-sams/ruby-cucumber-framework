@@ -14,12 +14,27 @@ end
 
 After do |scenario|
   if scenario.failed? and ENV['BROWSER'].downcase != "api"
+    screenshot = "#{scenario.name}"
     begin
-      encoded_img = driver.screenshot_as(:base64)
-      embed("#{encoded_img}", "image/png;base64")
+      # attach_file(screenshot, %{#{screenshot}.png})
+      attach_file(screenshot, File.open(%{#{screenshot}.png}))
+      # embed(screenshot, File.new(driver.save_screenshot(File.join(Dir.pwd, "#{screenshot}.png"))), true)
+      # embed(screenshot, File.new(driver.save_screenshot(File.join(Dir.pwd, "#{screenshot}.png"))), true)
+      # AllureCucumber::DSL.attach_file(screenshot, File.open(%{#{screenshot}.png}))
+      # AllureCucumber::DSL.attach_file(screenshot, %{#{screenshot}.png})
+      # AllureCucumber::Formatter.embed(%{#{screenshot}.png}, 'image/png', screenshot)
+
     rescue
       p "*** Could not take failed scenario screenshot ***"
     end
+
+    # begin
+    #   attach_file(screenshot, File.new(
+    #       driver.save_screenshot(
+    #           File.join(Dir.pwd, "#{screenshot}.png"))), true)
+    # rescue
+    #   p "*** Could not take failed scenario screenshot ***"
+    # end
   end
   quit_driver
 end
