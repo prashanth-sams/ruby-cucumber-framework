@@ -35,6 +35,34 @@ at_exit do
   end
   new_doc = doc.sub("Cucumber Features", "#{ENV['TITLE']}")
   File.open(report_file, "w") { |file| file.puts new_doc }
+
+  # ReportBuilder.configure do |config|
+  #   config.input_path = {
+  #       'Group A' => ['/'] }
+  #       # 'Group B' => ['path/of/json/file1', 'path/of/json/file2'],
+  #       # 'Group C' => 'path/of/json/files/dir'}
+  # end
+  # ReportBuilder.build_report options
+
+  # if ENV['MACHINE'] && ENV['MACHINE'] == 'EC2'
+  #
+  # end
+
+  ReportBuilder.input_path = 'reports/rerun_reports'
+
+  ReportBuilder.configure do |config|
+    config.report_path = 'reports/rerun_reports/retry/new'
+    # config.retry_report_path = 'reports/rerun_reports/retry'
+    config.report_types = [:json, :html]
+  end
+
+  options = {
+      report_title: 'Final Results'
+  }
+
+  ReportBuilder.build_report options
+  # ReportBuilder.build_report
+
 end
 
 def driver

@@ -1,0 +1,92 @@
+[
+  {
+    "uri": "features/scenarios/login/login_fail.feature",
+    "id": "argaam---user-authentication",
+    "keyword": "Feature",
+    "name": "Argaam - User Authentication",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "argaam---user-authentication;user-authentication",
+        "keyword": "Scenario",
+        "name": "User Authentication",
+        "description": "",
+        "line": 6,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@login",
+            "line": 5
+          }
+        ],
+        "comments": [
+          {
+            "value": "# Validate Credentials",
+            "line": 3
+          }
+        ],
+        "before": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2647644000
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I navigate to \"home\" page",
+            "line": 7,
+            "match": {
+              "location": "features/step_definitions/common_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10788140000
+            }
+          },
+          {
+            "keyword": "Then ",
+            "name": "I verify the home page as \"bob\" user",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/login_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 229111000
+            }
+          },
+          {
+            "keyword": "When ",
+            "name": "I login as a real user",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/login_steps.rb:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 773959000
+            }
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "features/support/hooks.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 300263000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

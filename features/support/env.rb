@@ -6,6 +6,7 @@ require 'rest-client'
 require 'byebug'
 require 'json'
 require 'base64'
+require 'report_builder'
 
 include RSpec::Matchers
 

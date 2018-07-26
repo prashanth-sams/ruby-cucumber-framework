@@ -9,8 +9,8 @@ def launch_driver_firefox
     @driver.manage.window.maximize
   end
 
-  @driver.manage.timeouts.implicit_wait = 60
-  @driver.manage.timeouts.page_load = 60
+  @driver.manage.timeouts.implicit_wait = 10
+  @driver.manage.timeouts.page_load = 20
 end
 
 def launch_driver_chrome
@@ -30,6 +30,6 @@ def launch_driver_chrome
     @driver.manage.window.maximize
   end
 
-  @driver.manage.timeouts.implicit_wait = 60
-  @driver.manage.timeouts.page_load = 60
+  @driver.manage.timeouts.implicit_wait = 10
+  @driver.manage.timeouts.page_load = 20
 end
