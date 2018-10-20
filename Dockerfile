@@ -62,9 +62,9 @@ RUN GK_VERSION=$(if [ ${GECKODRIVER_VERSION:-latest} = "latest" ]; then echo $(w
   && ln -fs /opt/geckodriver-$GK_VERSION /usr/bin/geckodriver
 
 #Clone Automation Test repository
-RUN mkdir -p /usr/tests/
-WORKDIR /usr/tests/
-#RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
+RUN mkdir -p /usr/tests/ruby_cucumber
+WORKDIR /usr/tests/ruby_cucumber
+RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 
 #RUN /bin/bash -l -c "bundle install"
 
