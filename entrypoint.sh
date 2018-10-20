@@ -8,8 +8,9 @@ source /usr/local/rvm/scripts/rvm
 #mkdir -p /usr/tests/ruby_cucumber
 #git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 
+cd /usr/tests/
 rm -rf ruby_cucumber/
-mkdir -p /usr/tests/ruby_cucumber
+#mkdir -p /usr/tests/ruby_cucumber
 git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 cd /usr/tests/ruby_cucumber
 bundle install
