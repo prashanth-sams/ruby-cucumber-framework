@@ -3,16 +3,11 @@
 export DISPLAY=:20
 Xvfb :20 -screen 0 1366x768x16 &
 x11vnc -passwd TestVNC -display :20 -N -forever &
-source /usr/local/rvm/scripts/rvm
-
-#mkdir -p /usr/tests/ruby_cucumber
-#git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 
 cd /usr/tests/
 rm -rf ruby_cucumber/
 git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 cd /usr/tests/ruby_cucumber
-rvm use ruby-2.4.1@selenium
-bundle install
+bundle exec install
 cucumber features/scenarios/demo/google.feature MODE=headless
 wait
