@@ -66,7 +66,9 @@ RUN mkdir -p /usr/tests/ruby_cucumber
 WORKDIR /usr/tests/ruby_cucumber
 RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 
-#RUN /bin/bash -l -c "bundle install"
+RUN /bin/bash -l -c "rvm gemset create selenium"
+RUN /bin/bash -l -c "rvm use ruby-2.4.1@selenium"
+RUN /bin/bash -l -c "bundle install"
 
 #RUN /bin/bash -l -c "export DISPLAY=:20"
 ENV DISPLAY :20
