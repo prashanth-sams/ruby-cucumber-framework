@@ -12,5 +12,6 @@ rm -rf ruby_cucumber/
 mkdir -p /usr/tests/ruby_cucumber
 git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 cd /usr/tests/ruby_cucumber
+bundle install
 cucumber features/scenarios/demo/google.feature MODE=headless
 wait

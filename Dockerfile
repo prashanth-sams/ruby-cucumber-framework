@@ -66,7 +66,7 @@ RUN mkdir -p /usr/tests/
 WORKDIR /usr/tests/
 #RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 
-RUN /bin/bash -l -c "bundle install"
+#RUN /bin/bash -l -c "bundle install"
 
 #RUN /bin/bash -l -c "export DISPLAY=:20"
 ENV DISPLAY :20
