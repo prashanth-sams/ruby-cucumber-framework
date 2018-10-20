@@ -10,9 +10,9 @@ source /usr/local/rvm/scripts/rvm
 
 cd /usr/tests/
 rm -rf ruby_cucumber/
-#mkdir -p /usr/tests/ruby_cucumber
 git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 cd /usr/tests/ruby_cucumber
+rvm use ruby-2.4.1@selenium
 bundle install
 cucumber features/scenarios/demo/google.feature MODE=headless
 wait
