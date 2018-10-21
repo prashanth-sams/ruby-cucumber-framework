@@ -15,4 +15,4 @@ cd /usr/tests/ruby_cucumber
 rvm use ruby-2.4.1@selenium
 bundle install
 cucumber features/scenarios/demo/google.feature MODE=headless
-#wait
+wait
