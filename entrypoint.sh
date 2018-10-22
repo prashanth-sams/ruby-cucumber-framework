@@ -8,9 +8,9 @@ cd /usr/tests/
 rm -rf ruby_cucumber/
 git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
 cd /usr/tests/ruby_cucumber
-echo rvm -v
-echo ruby -v
-echo bundle -v
+rvm -v
+ruby -v
+bundle -v
 bundle install
 cucumber features/scenarios/demo/google.feature MODE=headless
 wait
