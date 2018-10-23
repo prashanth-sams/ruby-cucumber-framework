@@ -9,7 +9,6 @@ RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/rub
 RUN /bin/bash -l -c "gem install bundler && bundle install"
 
 COPY ./entrypoint.sh /usr/tests/
-RUN rm -rf *
 
 RUN chmod 755 /usr/tests/entrypoint.sh
 ENTRYPOINT ["/usr/tests/entrypoint.sh"]
