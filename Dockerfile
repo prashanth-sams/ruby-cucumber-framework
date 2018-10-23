@@ -6,7 +6,6 @@ MAINTAINER Prashanth Sams
 RUN mkdir -p /usr/tests/ruby_cucumber
 WORKDIR /usr/tests/ruby_cucumber
 RUN git clone https://github.com/prashanth-sams/ruby_cucumber.git /usr/tests/ruby_cucumber
-
 RUN /bin/bash -l -c "gem install bundler && bundle install"
 
 RUN chmod 755 /usr/tests/ruby_cucumber/entrypoint.sh
