@@ -1,9 +1,7 @@
 require 'rspec'
 require 'selenium-webdriver'
 require 'cucumber'
-require 'faker'
 require 'byebug'
-require 'json'
 
 include RSpec::Matchers
 

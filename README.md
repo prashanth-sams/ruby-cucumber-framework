@@ -11,6 +11,12 @@ docker run -d -t <image_name>
 
 Test runner
 ----------
+##### Rake runner
+
+```
+rake spec
+```
+
 ##### Xvfb headless mode
 
 ```

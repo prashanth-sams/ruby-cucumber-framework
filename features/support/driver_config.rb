@@ -21,8 +21,6 @@ def launch_driver_chrome
     @driver = Selenium::WebDriver.for :chrome, options: options
 
     max_width, max_height = driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
-    p max_width
-    p max_height
     @driver.manage.window.resize_to(max_width, max_height)
 
   else

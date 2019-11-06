@@ -1,6 +1,6 @@
 Feature: Google search
 
-  @login
+  @search
   Scenario Outline: Google search test
     Given I navigate to Google home page
     Then I verify the Google home page

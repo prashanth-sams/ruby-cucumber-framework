@@ -13,7 +13,7 @@ Before do |scenario|
 end
 
 After do |scenario|
-  if scenario.failed? and ENV['BROWSER'].downcase != "api"
+  if scenario.failed?
     begin
       encoded_img = driver.screenshot_as(:base64)
       embed("#{encoded_img}", "image/png;base64")
@@ -48,9 +48,7 @@ end
 def setup
   # Load test data into @data variable
   @data = YAML.load_file(File.dirname(__FILE__) + "/../../data/data.yml")
-  $base_url = @data['PROD_URL']
-  # Default COUNTRY
-  ENV['LANG'] = "en" if ENV['LANG'].nil?
+
   # Default BROWSER and DEVICE
   ENV['BROWSER'] = "chrome" if ENV['BROWSER'].nil?
   # Base URL
