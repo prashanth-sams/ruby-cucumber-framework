@@ -1,1 +1,1 @@
-default: --require features --no-source --color --format pretty --format html --out reports/argaam_report.html
+default: --require features --no-source --color --format pretty --format html --out reports/test_report.html

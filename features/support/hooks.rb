@@ -25,12 +25,12 @@ After do |scenario|
 end
 
 at_exit do
-  ENV['TITLE'] = "ARGAAM AUTOMATION REPORT" if ENV['TITLE'].nil?
+  ENV['TITLE'] = "TEST AUTOMATION REPORT" if ENV['TITLE'].nil?
   begin
     report_file = File.absolute_path("report.html", "reports")
     doc = File.read(report_file)
   rescue
-    report_file = File.absolute_path("argaam_report.html", "reports")
+    report_file = File.absolute_path("test_report.html", "reports")
     doc = File.read(report_file)
   end
   new_doc = doc.sub("Cucumber Features", "#{ENV['TITLE']}")
@@ -48,6 +48,7 @@ end
 def setup
   # Load test data into @data variable
   @data = YAML.load_file(File.dirname(__FILE__) + "/../../data/data.yml")
+  $base_url = @data['PROD_URL']
   # Default COUNTRY
   ENV['LANG'] = "en" if ENV['LANG'].nil?
   # Default BROWSER and DEVICE

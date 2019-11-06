@@ -1,4 +1,4 @@
-module ARGAAM
+module API
 
   def wait_for_element(locator, time=20)
     wait = Selenium::WebDriver::Wait.new(:timeout => time)

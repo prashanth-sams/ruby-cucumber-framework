@@ -1,0 +1,24 @@
+Given(/^I navigate to Google (home|serp) page/) do |page|
+  case page
+  when "home"
+    @url_path="/"
+  else
+    p "case not matching"
+  end
+  @driver.navigate.to @base_url+@url_path
+end
+
+Then("I verify the Google home page") do
+  home = GoogleHomePage.new(@driver, @data)
+  expect(home.search_input.displayed?).to be(true)
+end
+
+When(/^I search for keyword "([^"]*)"/) do |keyword|
+  home = GoogleHomePage.new(@driver, @data)
+  home.search_input.send_keys keyword
+  @driver.action.send_keys(:enter).perform
+end
+
+Then("I verify the search result") do
+  expect(@driver.page_source.include? "Prashanth Sams").to be(true)
+end
