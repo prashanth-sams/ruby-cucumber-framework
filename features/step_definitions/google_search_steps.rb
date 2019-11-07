@@ -10,5 +10,5 @@ When(/^I search for keyword "([^"]*)"/) do |keyword|
 end
 
 Then("I verify the search result") do
-  expect(@driver.page_source.include? "Prashanth Sams").to be(true)
+  expect(@driver.page_source.include? "Prashanth Sams").to eq(true)
 end
