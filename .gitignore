@@ -3,3 +3,4 @@
 runners/
 *.DS_Store
 reports/**
+allure-report/

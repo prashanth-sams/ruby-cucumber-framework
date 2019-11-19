@@ -17,6 +17,12 @@ Test runner
 rake spec
 ```
 
+##### Allure report
+```shell
+rake allure
+allure generate reports/allure-results/ --clean && allure open
+```
+
 ##### Xvfb headless mode
 
 ```
