@@ -5,5 +5,5 @@ Cucumber::Rake::Task.new(:spec) do |features|
 end
 
 Cucumber::Rake::Task.new(:allure) do |features|
-	features.cucumber_opts = "features/scenarios/**/** -p cucumber"
+	features.cucumber_opts = "features/scenarios/**/** -p allure"
 end

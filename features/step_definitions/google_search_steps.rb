@@ -5,6 +5,8 @@ end
 
 When(/^I search for keyword "([^"]*)"/) do |keyword|
   home = GoogleHomePage.new(@driver, @data)
+
+  $logger.debug("sending input as #{keyword} for google search") if $logger
   home.search_input.send_keys keyword
   @driver.action.send_keys(:enter).perform
 end

@@ -2,18 +2,21 @@ Before do |scenario|
   setup
 
   case ENV['BROWSER'].downcase
-    when "chrome"
-      launch_driver_chrome
-    when "firefox"
-      launch_driver_firefox
-    else
-      p "Browser not mentioned"
+  when "chrome"
+    $logger.debug("opening chrome browser...") if $logger
+    launch_driver_chrome
+  when "firefox"
+    $logger.debug("opening firefox browser...")
+    launch_driver_firefox
+  else
+    p "Browser not mentioned"
   end
 
 end
 
 After do |scenario|
   if scenario.failed?
+    $logger.debug("scenario: #{scenario} FAILED")
     begin
       encoded_img = driver.screenshot_as(:base64)
       embed("#{encoded_img}", "image/png;base64")
@@ -34,7 +37,7 @@ at_exit do
     doc = File.read(report_file)
   end
   new_doc = doc.sub("Cucumber Features", "#{ENV['TITLE']}")
-  File.open(report_file, "w") { |file| file.puts new_doc }
+  File.open(report_file, "w") {|file| file.puts new_doc}
 end
 
 def driver
@@ -46,6 +49,9 @@ def quit_driver
 end
 
 def setup
+  # file logs
+  logs if ENV['LOGGER'] && ENV['LOGGER'].upcase == "ON"
+
   # Load test data into @data variable
   @data = YAML.load_file(File.dirname(__FILE__) + "/../../data/data.yml")
 

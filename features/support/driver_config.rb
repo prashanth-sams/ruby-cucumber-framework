@@ -14,7 +14,6 @@ def launch_driver_firefox
 end
 
 def launch_driver_chrome
-
   if ENV['MODE'] && ENV['MODE'].downcase=='headless'
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
@@ -30,4 +29,13 @@ def launch_driver_chrome
 
   @driver.manage.timeouts.implicit_wait = 60
   @driver.manage.timeouts.page_load = 60
+end
+
+def logs
+  now = (Time.now.to_f * 1000).to_i
+  $logger = Logger.new(STDOUT)
+  $logger.datetime_format = '%Y-%m-%d %H:%M:%S'
+
+  $logger = Logger.new(File.new("logs/test_#{now}.log", 'w'))
+  $logger.level = Logger::DEBUG
 end

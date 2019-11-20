@@ -1,5 +1,10 @@
 module API
 
+  def logs_cleaner
+    Dir.mkdir("./logs") unless File.exist?("./logs")
+    Dir["./logs/*.log"].map {|junk_file| File.delete(junk_file)}
+  end
+
   def wait_for_element(locator, time=20)
     wait = Selenium::WebDriver::Wait.new(:timeout => time)
     if locator.class == Hash
