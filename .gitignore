@@ -5,3 +5,4 @@ runners/
 reports/**
 allure-report/
 logs/
+screenshots/

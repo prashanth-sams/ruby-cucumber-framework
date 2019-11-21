@@ -16,10 +16,11 @@ end
 
 After do |scenario|
   if scenario.failed?
-    $logger.debug("scenario: #{scenario} FAILED")
+    $logger.debug("scenario: #{scenario} FAILED") if $logger
     begin
-      encoded_img = driver.screenshot_as(:base64)
-      embed("#{encoded_img}", "image/png;base64")
+      Dir.mkdir("./screenshots") unless Dir.exists?("./screenshots")
+      file = "#{scenario.name.gsub(" ","_").gsub(/[^0-9A-Za-z_]/, "")}.png"
+      driver.save_screenshot("./screenshots/#{file}")
     rescue
       p "*** Could not take failed scenario screenshot ***"
     end

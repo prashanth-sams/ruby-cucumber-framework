@@ -1,9 +1,22 @@
-### Build Docker image
+# Ruby Cucumber Framework
+> Generic ruby cucumber framework using selenium webdriver
+
+### Features
+
+- Allure report
+- Cucumber feature - cucumber - step-definition
+- Cross browser support
+- Logger
+- Screenshots on failure
+
+## Docker
+
+##### Build Docker image
 ```bash
 docker build -t <image_name> .
 ```
 
-### Docker container 
+##### Docker container 
 ```bash
 docker run -d -t <image_name>
 ```
@@ -26,18 +39,13 @@ allure generate reports/allure-results-json/ --clean && allure open
 allure generate reports/allure-results-json/ -o reports/allure-results-html --clean && allure open reports/allure-results-html/
 ```
 
-##### Cross Browser
+##  Browser
 ```bash
 # chrome
 rake allure BROWSER=chrome
 
 # firefox
 rake allure BROWSER=firefox
-```
-
-##### Logs
-```bash
-rake allure BROWSER=chrome LOGGER=ON
 ```
 
 ##### Xvfb headless mode
@@ -54,4 +62,9 @@ cucumber features/scenario/demo/google.feature
 ```bash
 source /usr/local/rvm/scripts/rvm
 cucumber features/scenario/demo/google.feature MODE=headless
+```
+
+## Logs
+```bash
+rake allure LOGGER=ON
 ```
