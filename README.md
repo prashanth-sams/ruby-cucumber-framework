@@ -18,7 +18,12 @@ rake spec
 ##### Allure report
 ```bash
 rake allure
-allure generate reports/allure-results/ --clean && allure open
+allure generate reports/allure-results-json/ --clean && allure open
+```
+
+###### custom allure html output folder
+```bash
+allure generate reports/allure-results-json/ -o reports/allure-results-html --clean && allure open reports/allure-results-html/
 ```
 
 ##### Cross Browser
