@@ -18,9 +18,9 @@ After do |scenario|
   if scenario.failed?
     $logger.debug("scenario: #{scenario} FAILED") if $logger
     begin
-      Dir.mkdir("./screenshots") unless Dir.exists?("./screenshots")
+      Dir.mkdir("./reports/screenshots") unless Dir.exists?("./reports/screenshots")
       file = "#{scenario.name.gsub(" ","_").gsub(/[^0-9A-Za-z_]/, "")}.png"
-      driver.save_screenshot("./screenshots/#{file}")
+      driver.save_screenshot("./reports/screenshots/#{file}")
     rescue
       p "*** Could not take failed scenario screenshot ***"
     end

@@ -5,4 +5,4 @@ runners/
 reports/**
 allure-report/
 logs/
-screenshots/
+Dockerfile_old
