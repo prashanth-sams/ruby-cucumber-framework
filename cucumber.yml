@@ -1,2 +1,6 @@
 default: --require features --no-source --color --format pretty --format html --out reports/test_report.html
-allure: --require features --no-source --color --format pretty --format AllureCucumber::CucumberFormatter --out reports/allure-results-json
+allure: --require features --no-source --color \n
+  --format pretty \n
+  --format AllureCucumber::CucumberFormatter --out reports/allure-results-json \n
+  --format json --out reports/cucumber.json \n
+  --retry 1

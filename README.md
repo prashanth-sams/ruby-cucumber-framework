@@ -4,10 +4,12 @@
 ### Features
 
 - Allure report
+- Cucumber JSON report
 - Cucumber feature - cucumber - step-definition
 - Cross browser support
 - Logger
 - Screenshots on failure
+- Retry on failure  
 
 ## Docker
 
