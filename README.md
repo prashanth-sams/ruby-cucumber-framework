@@ -13,6 +13,12 @@
 
 ## Docker
 
+##### Simple run
+```bash
+docker-compose up -d --scale node-chrome=2
+rake spec DOCKER=ON
+docker-compose down
+```
 ##### Build Docker image
 ```bash
 docker build -t <image_name> .

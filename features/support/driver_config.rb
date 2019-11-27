@@ -17,13 +17,25 @@ def launch_driver_chrome
   if ENV['MODE'] && ENV['MODE'].downcase=='headless'
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
-    @driver = Selenium::WebDriver.for :chrome, options: options
+
+    if ENV['DOCKER'] && ENV['DOCKER'].downcase == 'on'
+      caps = Selenium::WebDriver::Remote::Capabilities.chrome(options)
+      @driver = Selenium::WebDriver.for :remote, :url => "http://0.0.0.0:4444/wd/hub", desired_capabilities: caps
+    else
+      @driver = Selenium::WebDriver.for :chrome, options: options
+    end
 
     max_width, max_height = driver.execute_script("return [window.screen.availWidth, window.screen.availHeight];")
     @driver.manage.window.resize_to(max_width, max_height)
 
   else
-    @driver = Selenium::WebDriver::Driver.for(:chrome)
+    if ENV['DOCKER'] && ENV['DOCKER'].downcase == 'on'
+      caps = Selenium::WebDriver::Remote::Capabilities.chrome
+      @driver = Selenium::WebDriver.for :remote, :url => "http://0.0.0.0:4444/wd/hub", desired_capabilities: caps
+    else
+      @driver = Selenium::WebDriver::Driver.for(:chrome)
+    end
+
     @driver.manage.window.maximize
   end
 

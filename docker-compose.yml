@@ -1,0 +1,9 @@
+hub:
+  image: selenium/hub:3.14.0
+  container_name: hub
+  ports:
+    - "4444:4444"
+node-chrome:
+  image: selenium/node-chrome-debug:3.14.0
+  links:
+    - hub
